@@ -162,6 +162,9 @@
             load() {
                 axios.get('api/person').then((response) => {
                     this.reg = response.data.data;
+                }).catch(() => {
+                    this.$router.push({name: 'register'});
+                    EventBus.$emit('success', 'Sie haben noch kein Helfer Profil. Legen Sie sich mit dem untenstehenden  Formular eines an.');
                 });
             },
         },

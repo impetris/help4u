@@ -53,6 +53,8 @@ class PersonController extends Controller
         /** @var Person $person */
         $person = $user->person;
 
+        abort_unless($person instanceof Person, 404);
+
         $user->can('view', $person);
 
         return new PersonResource($person);
