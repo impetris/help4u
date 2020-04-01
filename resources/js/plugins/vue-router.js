@@ -25,6 +25,7 @@ const router = new VueRouter({
         }, {
             path: '/home',
             component: Home,
+            name: 'home',
         }, {
             path: '/agb',
             component: AGB,

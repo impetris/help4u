@@ -67,7 +67,7 @@
                     axios.post('/login', this.credentials).then(() => {
                         EventBus.$emit('success', 'Erfolgreich angemeldet.');
                         EventBus.$emit('logged-in');
-                        this.$router.push({name: 'profile'});
+                        this.$router.push({name: 'home'});
                     }).catch(() => {
                         EventBus.$emit('error', 'Email / Passwort ungültig.');
                     });
