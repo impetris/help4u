@@ -142,7 +142,7 @@
                     </div>
 
                     <div class="tw-text-right">
-                        <v-btn x-large color="primary" @click="handleSubmit(save)">Speichern</v-btn>
+                        <v-btn x-large color="primary" @click.once="handleSubmit(save)" :disabled="submitted" :loading="loading">Speichern</v-btn>
                     </div>
 
                 </v-form>
@@ -155,6 +155,7 @@
 
 <script>
     import {ValidationObserver, ValidationProvider} from 'vee-validate';
+    import {EventBus} from '../event-bus';
 
     export default {
         components: {ValidationObserver, ValidationProvider},
@@ -162,12 +163,19 @@
         data() {
             return {
                 reg: {},
+                submitted: false,
+                loading: false,
             };
         },
         methods: {
             save() {
-                axios.post('/api/help-search', this.reg).then(() => {
+                this.loading = true;
 
+                axios.post('/api/help-search', this.reg).then(() => {
+                    this.submitted = true;
+                    EventBus.$emit('success', 'Vielen Dank! Ihre Anfrage wurde gespeichert. Sie werden von Helfern kontaktiert.');
+                }).finally(() => {
+                    this.loading = false;
                 });
             },
         }

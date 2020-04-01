@@ -32,6 +32,6 @@ class EnquirerCreated extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.enquirer.created', ['enquirer' => $this->enquirer]);
+        return $this->subject('Ihre Anfrage')->markdown('emails.enquirer.created', ['enquirer' => $this->enquirer]);
     }
 }

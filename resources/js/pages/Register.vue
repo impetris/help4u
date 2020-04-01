@@ -157,7 +157,7 @@
                     EventBus.$emit('registered');
                     EventBus.$emit('success', 'Ihr Profile wurde erfolgreich angelegt.');
 
-                    this.$router.push({name: 'profile'});
+                    this.$router.push({path: '/profile/person'});
                 });
             },
         },

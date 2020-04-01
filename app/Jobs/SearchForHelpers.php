@@ -11,6 +11,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class SearchForHelpers implements ShouldQueue
@@ -48,11 +49,15 @@ class SearchForHelpers implements ShouldQueue
 
         /** @var Person $person */
         foreach ($res as $person) {
-            $person->inquiries()->create([
-                'enquirer_id' => $this->enquirer->id,
-            ]);
+            try {
+                $person->inquiries()->create([
+                    'enquirer_id' => $this->enquirer->id,
+                ]);
 
-            Mail::to($person->user)->send(new InquiryCreated($person));
+                Mail::to($person->user)->send(new InquiryCreated($person));
+            } catch (\Exception $exception) {
+                Log::error($exception->getMessage());
+            }
         }
 
         Mail::to($this->enquirer)->send(new EnquirerCreated($this->enquirer));

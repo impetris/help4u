@@ -31,6 +31,6 @@ class InquiryCreated extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.inquiry.created', ['person' => $this->person]);
+        return $this->subject('Neue Anfrage')->markdown('emails.inquiry.created', ['person' => $this->person]);
     }
 }
