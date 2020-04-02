@@ -42,9 +42,10 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K5TFWNR"
                       height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    
+
         <div id="app"></div>
 
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         <script src="{{ mix('/js/app.js') }}"></script>
     </body>
 </html>

@@ -64,14 +64,17 @@
         </div>
 
         <div class="tw-w-full tw-bg-gray-400">
-            <div class="tw-container tw-mx-auto">
-                <div class="tw-p-8">
+            <div class="tw-container tw-mx-auto tw-pt-4 tw-pb-8">
+                <div class="tw-px-8 d-inline-block tw-align-top">
                     <div>
                         <div class="my-4">Konzeption & Realisierung</div>
                         <a href="https://impetris.ch" target="_blank">
                             <img class="tw-h-16" src="/img/sponsor/impetris_colour_trans_bg.png">
                         </a>
                     </div>
+                </div>
+                <div class="d-inline-block mt-4">
+                    <div id="twitter-container"></div>
                 </div>
             </div>
         </div>
@@ -82,6 +85,20 @@
 <script>
     export default {
         name: 'Home',
+        mounted() {
+            twttr.widgets.createTimeline(
+                {
+                    sourceType: 'profile',
+                    screenName: 'Help4uCh',
+                    theme: 'light',
+                },
+                document.getElementById("twitter-container"),
+                {
+                    tweetLimit: 1,
+                    chrome: 'noheader, nofooter, noscrollbar',
+                },
+            );
+        }
     };
 </script>
 

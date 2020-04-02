@@ -14,6 +14,8 @@ import Inquiries from '../pages/Inquiries';
 import AGB from '../pages/AGB';
 import Impressum from '../pages/Impressum';
 import Datenschutz from '../pages/Datenschutz';
+import ResetPassword from '../pages/ResetPassword';
+import SetPassword from '../pages/SetPassword';
 
 Vue.use(VueRouter);
 
@@ -46,6 +48,14 @@ const router = new VueRouter({
             path: '/register-user',
             component: RegisterUser,
             name: 'register-user',
+        }, {
+            path: '/reset-password',
+            component: ResetPassword,
+            name: 'reset-password',
+        }, {
+            path: '/set-password',
+            component: SetPassword,
+            name: 'set-password',
         }, {
             path: '/register',
             component: Register,

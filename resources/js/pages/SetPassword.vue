@@ -7,14 +7,9 @@
                 <v-card>
                     <v-card-text>
 
-                        <v-alert type="info" border="left">
-                            Bevor sie sich als neuer Helfer*in anmelden können, müssen Sie einen Benutzer anlegen.
-                            Dies ermöglicht Ihnen die spätere einfache Administartion und beantwortung von Anfragen.
-                        </v-alert>
-
                         <validation-provider rules="required|email" name="Email" v-slot="{errors}">
                             <v-text-field
-                                v-model="credentials.email"
+                                v-model="reg.email"
                                 type="email"
                                 label="Email Adresse"
                                 required
@@ -24,7 +19,7 @@
 
                         <validation-provider rules="required" name="Passwort" v-slot="{errors}">
                             <v-text-field
-                                v-model="credentials.password"
+                                v-model="reg.password"
                                 type="password"
                                 label="Passwort"
                                 required
@@ -32,12 +27,19 @@
                             ></v-text-field>
                         </validation-provider>
 
+                        <validation-provider rules="required" name="Passwort bestätigen" v-slot="{errors}">
+                            <v-text-field
+                                v-model="reg.password_confirmation"
+                                type="password"
+                                label="Passwort bestätigen"
+                                required
+                                :error-messages="errors"
+                            ></v-text-field>
+                        </validation-provider>
                     </v-card-text>
                     <v-card-actions class="pa-4">
-                        <router-link :to="{name: 'reset-password'}">Passwort vergessen?</router-link>
                         <v-spacer></v-spacer>
-                        <v-btn x-large color="grey" text @click="$router.push({name: 'register-user'})">Neu Registrieren</v-btn>
-                        <v-btn x-large color="primary" @click="handleSubmit(login)">Anmelden</v-btn>
+                        <v-btn x-large color="primary" @click="handleSubmit(send)">Passwort zurücksetzen</v-btn>
                     </v-card-actions>
 
                 </v-card>
@@ -52,28 +54,34 @@
     import {EventBus} from '../event-bus';
 
     export default {
-        name: 'Login',
+        name: 'SetPassword',
         components: {ValidationObserver, ValidationProvider},
         data() {
             return {
-                credentials: {
-                    username: null,
+                reg: {
+                    email: null,
+                    token: null,
                     password: null,
+                    password_confirmation: null,
                 },
+                loading: false,
             };
         },
         methods: {
-            login() {
-                axios.get('/sanctum/csrf-cookie').then(response => {
-                    axios.post('/login', this.credentials).then(() => {
-                        EventBus.$emit('success', 'Erfolgreich angemeldet.');
-                        EventBus.$emit('logged-in');
-                        this.$router.push({name: 'home'});
-                    }).catch(() => {
-                        EventBus.$emit('error', 'Email / Passwort ungültig.');
-                    });
+            send() {
+                this.loading = true;
+
+                axios.post('password/reset', this.reg).then(() => {
+                    EventBus.$emit('success', 'Passwort erfolgreich gespeichert');
+                    this.$router.push({name: 'profile.inquiries'})
+                }).finally(() => {
+                    this.loading = false;
                 });
             },
+        },
+        mounted() {
+            this.reg.email = this.$route.query.email;
+            this.reg.token = this.$route.query.token;
         },
     };
 </script>

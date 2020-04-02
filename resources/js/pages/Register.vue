@@ -6,6 +6,10 @@
 
                 <v-form>
 
+                    <v-alert type="info" border="left" outlined>
+                        Es fehlen Dinge oder Möglichkeiten, schreiben Sie uns auf <a href="mailto:info@help4u.ch">info@help4u.ch</a>.
+                    </v-alert>
+
                     <div class="tw-border-b tw-border-gray-400 tw-text-2xl tw-font-thin">
                         Wo können Sie helfen?
                     </div>
@@ -29,6 +33,12 @@
                     </div>
 
                     <div class="tw-m-8">
+
+                        <v-alert type="info" border="left">
+                            Wählen Sie hier alle Zeiten bei welchen Sie Helfen können.<br>
+                            z.B. Ganztags + Morgens + Mittgags + Abends
+                        </v-alert>
+
                         <v-row>
                             <v-col cols="6">
                                 <v-checkbox v-model="reg.times" :value="1" label="Ganztags"></v-checkbox>
