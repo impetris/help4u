@@ -2,7 +2,7 @@
     <div>
 
         <div class="tw-container tw-bg-teal-500 tw-w-full tw-shadow-lg tw-p-10 tw-mx-auto tw-my-8 tw-bg-center tw-bg-right" style="background-image: url('/img/network.png')">
-            <div class="tw-text-4xl tw-text-white tw-font-light tw-m-4 tw-py-8 tw-w-1/2 tw-tracking-wide tw-leading-loose">
+            <div class="tw-text-2xl md:tw-text-4xl tw-text-white tw-font-bold md:tw-font-light tw-m-4 tw-py-8 tw-w-full md:tw-w-1/2 tw-tracking-wide tw-leading-loose">
                 In Zeiten von <strong class="tw-underline">#COVOID19</strong> einfache und schnelle Hilfe von <span class="tw-underline">Freiwilligen</span> für Personen die <span
                 class="tw-underline">Hilfe</span> benötigen.
             </div>
@@ -10,14 +10,14 @@
 
         <div class="tw-container tw-mx-auto">
             <div class="tw-flex tw-flex-wrap tw-text-2xl tw-mt-8">
-                <div class="tw-w-1/2">
+                <div class="tw-w-full md:tw-w-1/2 tw-mb-2 md:tw-mb-0">
                     <router-link :to="{name: 'help'}">
                         <div class="tw-py-6 tw-mx-8 tw-text-center tw-bg-blue-700 tw-text-white tw-rounded-lg hover:tw-shadow-lg hover:tw-bg-blue-800 tw-cursor-pointer">
                             Ich benötige Hilfe
                         </div>
                     </router-link>
                 </div>
-                <div class="tw-w-1/2">
+                <div class="tw-w-full md:tw-w-1/2">
                     <router-link :to="{name: 'register'}">
                         <div class="tw-py-6 tw-mx-8 tw-text-center tw-border-2 tw-rounded-lg hover:tw-shadow-lg tw-cursor-pointer tw-text-black">Ich kann Helfen</div>
                     </router-link>
@@ -64,8 +64,8 @@
         </div>
 
         <div class="tw-w-full tw-bg-gray-400">
-            <div class="tw-container tw-mx-auto tw-pt-4 tw-pb-8">
-                <div class="tw-px-8 d-inline-block tw-align-top">
+            <div class="tw-container tw-mx-auto tw-pt-4 tw-pb-8 tw-px-8">
+                <div class="d-inline-block tw-align-top md:tw-mr-8">
                     <div>
                         <div class="my-4">Konzeption & Realisierung</div>
                         <a href="https://impetris.ch" target="_blank">

@@ -2,7 +2,7 @@
     <v-app class="tw-text-base tw-text-gray-700">
 
         <div class="border-bottom tw-border-b">
-            <div class="tw-container tw-mx-auto tw-py-4">
+            <div class="tw-container tw-mx-auto tw-py-4 tw-px-4 md:tw-px-0">
                 <div class="tw-font-bold tw-text-xl tw-inline-block tw-cursor-pointer" @click="$router.push({path: '/'})">HELP4U</div>
 
                 <div v-if="isLoggedIn" class="tw-float-right">
@@ -29,7 +29,7 @@
 
         <div>
             <div class="tw-container tw-mx-auto">
-                <div class="my-8">
+                <div class="my-8 tw-py-4 tw-px-4 md:tw-px-0">
                     <router-link :to="{name: 'impressum'}" class="hover:tw-underline">Impressum</router-link>
                     <span class="mx-2">|</span>
                     <router-link :to="{name: 'datenschutz'}" class="hover:tw-underline">Datenschutz</router-link>
