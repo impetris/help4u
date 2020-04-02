@@ -39,6 +39,11 @@ task('build', function () {
     run('export PATH=$PATH:~/.nvm/versions/node/v12.16.1/bin && cd {{release_path}} && npm install && npm run prod');
 });
 
+after('deploy:symlink', 'restart');
+task('restart', function() {
+    run('sudo service php7.4-fpm restart');
+});
+
 // [Optional] if deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');
 
