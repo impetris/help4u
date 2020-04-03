@@ -7,7 +7,7 @@
                 <v-form>
 
                     <div class="tw-border-b tw-border-gray-400 tw-text-2xl tw-font-thin">
-                        Als neue Helfer*in Regsitrieren
+                        Als neue Helfer*in Registrieren
                     </div>
 
                     <div class="tw-m-8">

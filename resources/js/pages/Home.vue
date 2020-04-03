@@ -1,7 +1,7 @@
 <template>
     <div>
 
-        <div class="tw-container tw-bg-teal-500 tw-w-full tw-shadow-lg tw-p-10 tw-mx-auto tw-my-8 tw-bg-center tw-bg-right" style="background-image: url('/img/network.png')">
+        <div class="tw-container tw-bg-teal-500 tw-w-full tw-shadow-lg tw-p-10 tw-mx-auto tw-my-8 tw-bg-center tw-bg-right tw-bg-contain" style="background-image: url('/img/help4u.png')">
             <div class="tw-text-2xl md:tw-text-4xl tw-text-white tw-font-bold md:tw-font-light tw-m-4 tw-py-8 tw-w-full md:tw-w-1/2 tw-tracking-wide tw-leading-loose">
                 In Zeiten von <strong class="tw-underline">#COVOID19</strong> einfache und schnelle Hilfe von <span class="tw-underline">Freiwilligen</span> für Personen die <span
                 class="tw-underline">Hilfe</span> benötigen.
@@ -39,7 +39,7 @@
                 </p>
                 <p>
                     <strong>Hilfe benötigen</strong><br>
-                    Geben sie an zu welchem in welchem Bereich sie Hilfe benötigen, und wo Sie diese Benötigen. HELP4U sucht dann automatisch nach Personen die in Ihrer nähe sind
+                    Geben sie an, zu welchem Bereich sie Hilfe benötigen und wo Sie diese benötigt wird. HELP4U sucht dann automatisch nach Personen die in Ihrer nähe sind,
                     und diese Hilfe anbieten können die Sie benötigen. Diese setzen sich dann mit Ihnen direkt in verbindung.
                 </p>
                 <p>
@@ -66,10 +66,16 @@
         <div class="tw-w-full tw-bg-gray-400">
             <div class="tw-container tw-mx-auto tw-pt-4 tw-pb-8 tw-px-8">
                 <div class="d-inline-block tw-align-top md:tw-mr-8">
-                    <div>
+                    <div class="tw-inline-block tw-mr-8">
                         <div class="my-4">Konzeption & Realisierung</div>
                         <a href="https://impetris.ch" target="_blank">
                             <img class="tw-h-16" src="/img/sponsor/impetris_colour_trans_bg.png">
+                        </a>
+                    </div>
+                    <div class="tw-inline-block">
+                        <div class="my-4">Bilder</div>
+                        <a href="https://diexperten.ch" target="_blank">
+                            <img class="tw-h-16" src="/img/sponsor/diexperten.png">
                         </a>
                     </div>
                 </div>
