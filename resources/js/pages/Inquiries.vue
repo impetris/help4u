@@ -2,11 +2,17 @@
     <div class="tw-container tw-mx-auto">
         <div class="tw-m-16">
 
+            <v-alert type="error" border="left" :value="user.person_id === null">
+                Sie haben noch kein Helfer Profil. Legen Sie sich
+                <router-link :to="{name:'profile.person'}">hier</router-link>
+                eines an.
+            </v-alert>
+
             <div class="tw-border-b tw-border-gray-400 tw-text-2xl tw-font-thin">
                 Anfragen für Hilfe
             </div>
 
-            <v-alert type="info"  border="left">
+            <v-alert type="info" border="left">
                 Bitte setzen Sie sich persönlich per Email oder Telefon mit der Person in Kontakt, sobald Sie eine Anfrage angenommen haben.
                 Vielen Dank!
             </v-alert>
@@ -52,6 +58,12 @@
                         </v-col>
                     </v-row>
                 </template>
+                <template v-slot:no-data>
+                    <v-alert type="warning" outlined>
+                        Aktuell sind keine Anfragen an Sie vorhanden. Sobald jemand in Ihrer Region nach Hilfe sucht, werden Sie benachrichtigt.
+                        Alle Anfragen werden dann hier Aufgelistet.
+                    </v-alert>
+                </template>
             </v-data-iterator>
         </div>
 
@@ -59,12 +71,19 @@
 </template>
 
 <script>
+    import {mapGetters} from 'vuex';
+
     export default {
         name: 'Inquiries',
         data() {
             return {
                 items: [],
             };
+        },
+        computed: {
+            ...mapGetters('user', {
+                user: 'user',
+            }),
         },
         filters: {
             categoryLabel(value) {

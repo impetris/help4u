@@ -36,7 +36,7 @@
                     <v-card-actions class="pa-4">
                         <router-link :to="{name: 'reset-password'}">Passwort vergessen?</router-link>
                         <v-spacer></v-spacer>
-                        <v-btn x-large color="grey" text @click="$router.push({name: 'register-user'})">Neu Registrieren</v-btn>
+                        <v-btn x-large color="grey" text @click="$router.push({name: 'register-user'})" class="hidden-md-and-down">Neu Registrieren</v-btn>
                         <v-btn x-large color="primary" @click="handleSubmit(login)">Anmelden</v-btn>
                     </v-card-actions>
 

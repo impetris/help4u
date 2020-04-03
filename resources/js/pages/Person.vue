@@ -121,7 +121,7 @@
                         </v-row>
                         <v-row>
                             <v-col>
-                                <validation-provider rules="max:255" name="Telefon" v-slot="{errors}">
+                                <validation-provider rules="required|max:255|phone" name="Telefon" v-slot="{errors}">
                                     <v-text-field
                                         v-model="reg.phone"
                                         type="email"
@@ -147,12 +147,13 @@
 </template>
 
 <script>
-    import {ValidationObserver, ValidationProvider} from 'vee-validate';
+    import {extend, ValidationObserver, ValidationProvider} from 'vee-validate';
     import {EventBus} from '../event-bus';
+    import PhoneNumber from 'awesome-phonenumber';
 
     export default {
         name: 'Person',
-        components: {ValidationObserver, ValidationProvider},
+        components: {extend, ValidationObserver, ValidationProvider},
         data() {
             return {
                 reg: {
@@ -180,6 +181,18 @@
         },
         mounted() {
             this.load();
+
+            extend('phone', {
+                message (fieldName) {
+                    return `${fieldName} ist keine gültige Telefonnummer.`;
+                },
+                validate (value) {
+                    return new Promise(resolve => {
+                        let phone = new PhoneNumber(value, 'CH');
+                        resolve({ valid: phone.isValid() })
+                    });
+                }
+            });
         }
     };
 </script>

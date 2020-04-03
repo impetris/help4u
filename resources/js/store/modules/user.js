@@ -15,8 +15,6 @@ const actions = {
         if (!state.loaded) {
             return axios.get('/api/user').then(response => {
                 commit('load', response.data.data);
-            }).catch(() => {
-                // Do nothing
             });
         }
     },

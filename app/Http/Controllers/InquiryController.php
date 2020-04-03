@@ -18,7 +18,14 @@ class InquiryController extends Controller
      */
     public function index()
     {
-        $inquiries = Auth::user()->person->inquiries->whereIn('status', [NULL, 1]);
+        /** @var Person $person */
+        $person = Auth::user()->person;
+
+        if ($person instanceof Person) {
+            $inquiries = Auth::user()->person->inquiries->whereIn('status', [null, 1]);
+        } else {
+            $inquiries = [];
+        }
 
         return InquiryResource::collection($inquiries);
     }

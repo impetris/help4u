@@ -1,6 +1,6 @@
 <template>
     <div class="tw-container tw-mx-auto">
-        <div class="tw-m-16">
+        <div class="tw-m-8 md:tw-m-16">
 
             <ValidationObserver v-slot="{handleSubmit}">
 
@@ -10,7 +10,7 @@
                         Wo benötigen Sie Hilfe?
                     </div>
 
-                    <div class="tw-m-8">
+                    <div class="tw-m-4 md:tw-m-8">
                         <v-radio-group v-model="reg.category_id" :mandatory="true">
                             <v-row>
                                 <v-col cols="6">
@@ -30,7 +30,7 @@
                         Wann benötigen Sie Hilfe?
                     </div>
 
-                    <div class="tw-m-8">
+                    <div class="tw-m-4 md:tw-m-8">
                         <v-radio-group v-model="reg.time_id" :mandatory="true">
                             <v-row>
                                 <v-col cols="6">
@@ -50,7 +50,7 @@
                         Wie können Sie erreicht werden?
                     </div>
 
-                    <div class="tw-m-8">
+                    <div class="tw-m-4 md:tw-m-8">
 
                         <v-row>
                             <v-col>
@@ -66,7 +66,7 @@
                             </v-col>
                         </v-row>
                         <v-row>
-                            <v-col cols="6">
+                            <v-col cols="12" md="6">
                                 <validation-provider rules="required|max:255" name="Vorname" v-slot="{errors}">
                                     <v-text-field
                                         v-model="reg.first_name"
@@ -77,7 +77,7 @@
                                     ></v-text-field>
                                 </validation-provider>
                             </v-col>
-                            <v-col cols="6">
+                            <v-col cols="12" md="6">
                                 <validation-provider rules="required|max:255" name="Nachname" v-slot="{errors}">
                                     <v-text-field
                                         v-model="reg.last_name"

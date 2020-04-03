@@ -1,6 +1,6 @@
 <template>
     <div class="tw-container tw-mx-auto">
-        <div class="tw-m-16">
+        <div class="tw-m-8 md:tw-m-16">
 
             <ValidationObserver v-slot="{handleSubmit}">
 
@@ -10,7 +10,7 @@
                         Als neue Helfer*in Registrieren
                     </div>
 
-                    <div class="tw-m-8">
+                    <div class="tw-m-0 md:tw-m-8">
 
                         <v-alert :value="error" color="error" border="left" dismissible>
                             <strong>{{ errorMessage }}</strong>
@@ -90,7 +90,7 @@
         methods: {
             save() {
                 axios.post('api/user', this.reg).then(() => {
-                    this.$router.push({name: 'register'});
+                    EventBus.$emit('logged-in', {redirect: {name: 'register'}});
                     EventBus.$emit('success', 'Inr Benutzeraccount wurde angelegt.');
                 }).catch(error => {
                     this.error = true;

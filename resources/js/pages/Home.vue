@@ -1,8 +1,8 @@
 <template>
     <div>
 
-        <div class="tw-container tw-bg-teal-500 tw-w-full tw-shadow-lg tw-p-10 tw-mx-auto tw-my-8 tw-bg-center tw-bg-right tw-bg-contain" style="background-image: url('/img/help4u.png')">
-            <div class="tw-text-2xl md:tw-text-4xl tw-text-white tw-font-bold md:tw-font-light tw-m-4 tw-py-8 tw-w-full md:tw-w-1/2 tw-tracking-wide tw-leading-loose">
+        <div class="tw-container tw-bg-teal-500 tw-w-full tw-shadow-lg tw-pl-4 md:tw-pl-10 tw-p-10 tw-mx-auto tw-my-8 tw-bg-center md:tw-bg-right tw-bg-cover md:tw-bg-contain" style="background-image: url('/img/help4u.png')">
+            <div class="tw-text-2xl md:tw-text-4xl tw-text-white tw-font-bold md:tw-font-light tw-m-4 tw-py-4 tw-w-3/4 md:tw-w-1/2 tw-tracking-wide tw-leading-loose">
                 In Zeiten von <strong class="tw-underline">#COVOID19</strong> einfache und schnelle Hilfe von <span class="tw-underline">Freiwilligen</span> für Personen die <span
                 class="tw-underline">Hilfe</span> benötigen.
             </div>

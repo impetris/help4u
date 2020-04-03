@@ -37,6 +37,7 @@
             EventBus.$on('error', message => {
                 this.text = message;
                 this.snackbar = true;
+                this.color = 'red darken-2';
             });
         }
     };

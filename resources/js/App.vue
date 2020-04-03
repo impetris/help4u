@@ -10,7 +10,7 @@
                         <div class="hover:tw-underline tw-cursor-pointer" @click="logout">Abmelden</div>
                     </div>
                     <div class="tw-inline-block">
-                        <v-btn color="primary" @click="$router.push({name: 'profile.person'})">Mein Profil</v-btn>
+                        <v-btn color="primary" @click="$router.push({name: 'profile.inquiries'})">Mein Profil</v-btn>
                     </div>
                 </div>
                 <div v-else class="tw-float-right">
@@ -57,6 +57,7 @@
         computed: {
             ...mapGetters('user', {
                 isLoggedIn: 'isLoggedIn',
+                user: 'user',
             }),
         },
         methods: {
@@ -64,11 +65,21 @@
                 loadUser: 'load',
                 logout: 'logout',
             }),
+            loggedIn(options) {
+                this.loadUser().then(() => {
+                    if (this.user.person_id === null) {
+                        this.$router.push({name: 'profile.person'});
+                    }
+                    else if (_.has(options, 'redirect')) {
+                        this.$router.push(options.redirect);
+                    }
+                });
+            },
         },
         mounted() {
-            this.loadUser();
+            this.loggedIn();
 
-            EventBus.$on('logged-in', this.loadUser);
+            EventBus.$on('logged-in', this.loggedIn);
         },
     };
 </script>

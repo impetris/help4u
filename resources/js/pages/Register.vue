@@ -7,7 +7,7 @@
                 <v-form>
 
                     <v-alert type="info" border="left" outlined>
-                        Es fehlen Dinge oder Möglichkeiten, schreiben Sie uns auf <a href="mailto:info@help4u.ch">info@help4u.ch</a>.
+                        Es fehlen Dinge oder Möglichkeiten? Schreiben Sie uns auf <a href="mailto:info@help4u.ch">info@help4u.ch</a>.
                     </v-alert>
 
                     <div class="tw-border-b tw-border-gray-400 tw-text-2xl tw-font-thin">
@@ -35,7 +35,7 @@
                     <div class="tw-m-2 md:tw-m-8">
 
                         <v-alert type="info" border="left">
-                            Wählen Sie hier alle Zeiten bei welchen Sie Helfen können.<br>
+                            Wählen Sie hier alle Zeiten bei welchen Sie Helfen können.
                             z.B. Ganztags + Morgens + Mittgags + Abends
                         </v-alert>
 
@@ -121,7 +121,7 @@
                         </v-row>
                         <v-row>
                             <v-col>
-                                <validation-provider rules="max:255" name="Telefon" v-slot="{errors}">
+                                <validation-provider rules="required|max:255|phone" name="Telefon" v-slot="{errors}">
                                     <v-text-field
                                         v-model="reg.phone"
                                         type="email"
@@ -147,8 +147,9 @@
 </template>
 
 <script>
-    import {ValidationObserver, ValidationProvider} from 'vee-validate';
+    import {extend, ValidationObserver, ValidationProvider} from 'vee-validate';
     import {EventBus} from '../event-bus';
+    import PhoneNumber from 'awesome-phonenumber';
 
     export default {
         name: 'Register',
@@ -164,13 +165,31 @@
         methods: {
             save() {
                 axios.post('/api/people/register', this.reg).then(() => {
+                    EventBus.$emit('logged-in', {
+                        redirect: {
+                            path: '/profile/person',
+                        }
+                    });
                     EventBus.$emit('registered');
-                    EventBus.$emit('success', 'Ihr Profile wurde erfolgreich angelegt.');
+                    EventBus.$emit('success', 'Ihr Profil wurde erfolgreich angelegt.');
 
                     this.$router.push({path: '/profile/person'});
                 });
             },
         },
+        mounted() {
+            extend('phone', {
+                message (fieldName) {
+                    return `${fieldName} ist keine gültige Telefonnummer.`;
+                },
+                validate (value) {
+                    return new Promise(resolve => {
+                        let phone = new PhoneNumber(value, 'CH');
+                        resolve({ valid: phone.isValid() })
+                    });
+                }
+            });
+        }
     };
 </script>
 
