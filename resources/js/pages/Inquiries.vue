@@ -3,18 +3,18 @@
         <div class="tw-m-16">
 
             <v-alert type="error" border="left" :value="user.person_id === null">
+                <span class="hidden">{{ $t('Inquiry.noProfile') }}</span>
                 Sie haben noch kein Helfer Profil. Legen Sie sich
                 <router-link :to="{name:'profile.person'}">hier</router-link>
                 eines an.
             </v-alert>
 
             <div class="tw-border-b tw-border-gray-400 tw-text-2xl tw-font-thin">
-                Anfragen für Hilfe
+                {{ $t('Inquiry.title') }}
             </div>
 
             <v-alert type="info" border="left">
-                Bitte setzen Sie sich persönlich per Email oder Telefon mit der Person in Kontakt, sobald Sie eine Anfrage angenommen haben.
-                Vielen Dank!
+                {{ $t('Inquiry.infoText') }}
             </v-alert>
 
             <v-data-iterator
@@ -49,10 +49,10 @@
                                     </v-chip>
                                     <v-spacer></v-spacer>
                                     <div v-if="!item.status" class="tw-inline-block">
-                                        <v-btn color="grey" outlined small tile @click="decline(item)">Ablehnen</v-btn>
-                                        <v-btn color="primary" small tile @click="accept(item)">Annehmen</v-btn>
+                                        <v-btn color="grey" outlined small tile @click="decline(item)">{{ $t('OneWord.decline') }}</v-btn>
+                                        <v-btn color="primary" small tile @click="accept(item)">{{ $t('OneWord.accept') }}</v-btn>
                                     </div>
-                                    <div v-else-if="item.status === 1">Angenommen</div>
+                                    <div v-else-if="item.status === 1">{{ $t('OneWord.accepted') }}</div>
                                 </v-card-actions>
                             </v-card>
                         </v-col>
@@ -60,8 +60,7 @@
                 </template>
                 <template v-slot:no-data>
                     <v-alert type="warning" outlined>
-                        Aktuell sind keine Anfragen an Sie vorhanden. Sobald jemand in Ihrer Region nach Hilfe sucht, werden Sie benachrichtigt.
-                        Alle Anfragen werden dann hier Aufgelistet.
+                        {{ $t('Inquiry.noData') }}
                     </v-alert>
                 </template>
             </v-data-iterator>

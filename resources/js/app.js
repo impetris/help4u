@@ -5,6 +5,11 @@
  */
 
 import App from './App.vue';
+import vuetify from './plugins/vuetify';
+import router from './plugins/vue-router';
+import store from './store/index';
+import './plugins/vee-validate';
+import i18n from './plugins/locizer';
 
 require('./bootstrap');
 
@@ -23,11 +28,6 @@ window.Vue = require('vue');
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-import vuetify from './plugins/vuetify';
-import router from './plugins/vue-router';
-import store from './store/index';
-import './plugins/vee-validate';
-
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -38,6 +38,7 @@ const app = new Vue({
     router,
     store,
     vuetify,
-    el:'#app',
+    el: '#app',
     render: (h) => h(App),
+    i18n,
 });

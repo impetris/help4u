@@ -42,6 +42,7 @@ class RegisterUserController extends Controller
         return Validator::make($data, [
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'locale' => ['required', 'string', 'in:de-CH,it-CH,fr-CH,en-GB'],
         ]);
     }
 
@@ -54,9 +55,12 @@ class RegisterUserController extends Controller
      */
     protected function create(array $data)
     {
+        app()->setLocale($data['locale']);
+
         return User::create([
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'locale' => session('locale', 'de-CH'),
         ]);
     }
 

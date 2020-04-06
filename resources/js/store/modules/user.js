@@ -1,12 +1,17 @@
+import _ from 'lodash';
+
 const state = {
     loaded: false,
-    user: {},
+    user: {
+        locale: 'de-CH',
+    },
 };
 
 // getters
 const getters = {
     user: state => state.user,
-    isLoggedIn: state => !_.isEmpty(state.user),
+    isLoggedIn: state => _.has(state.user, 'email'),
+    locale: state => _.get(state.user, 'locale', 'de-CH'),
 };
 
 // actions
@@ -28,6 +33,9 @@ const actions = {
             commit('logout');
         });
     },
+    setLocale({state, commit}, locale) {
+        commit('setLocale', locale)
+    },
 };
 
 // mutations
@@ -43,8 +51,15 @@ const mutations = {
         state.user = user;
     },
     logout(state) {
-        state.user = {};
+        let oldLocale = state.user.locale;
+        state.user = {
+            locale: oldLocale,
+        };
         state.loaded = false;
+    },
+    setLocale(state, locale) {
+        console.log(locale);
+        state.user.locale = locale;
     },
 };
 

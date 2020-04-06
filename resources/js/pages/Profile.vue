@@ -21,7 +21,7 @@
                             </v-list-item-icon>
 
                             <v-list-item-content>
-                                <v-list-item-title>Anfragen</v-list-item-title>
+                                <v-list-item-title>{{ $t('Profile.nav.inquiries') }}</v-list-item-title>
                             </v-list-item-content>
                         </v-list-item>
                         <v-list-item link :to="{ path: '/profile/person' }">
@@ -30,7 +30,7 @@
                             </v-list-item-icon>
 
                             <v-list-item-content>
-                                <v-list-item-title>Mein Profil</v-list-item-title>
+                                <v-list-item-title>{{ $t('Profile.nav.myProfile') }}</v-list-item-title>
                             </v-list-item-content>
                         </v-list-item>
                     </v-list-item-group>

@@ -43,6 +43,8 @@ use Propaganistas\LaravelPhone\PhoneNumber;
  * @property float|null $longitude
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Enquirer whereLatitude($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Enquirer whereLongitude($value)
+ * @property string|null $email
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Enquirer whereEmail($value)
  */
 class Enquirer extends Model
 {

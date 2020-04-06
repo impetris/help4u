@@ -32,6 +32,8 @@ use Illuminate\Notifications\Notifiable;
  * @property-read \App\Person $person
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Inquiry[] $inquiries
  * @property-read int|null $inquiries_count
+ * @property string $locale
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereLocale($value)
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -43,7 +45,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'email', 'password',
+        'email', 'password', 'locale',
     ];
 
     /**

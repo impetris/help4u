@@ -20,7 +20,7 @@
                     </v-card-text>
                     <v-card-actions class="pa-4">
                         <v-spacer></v-spacer>
-                        <v-btn x-large color="primary" @click.once="handleSubmit(send)">Passwort zurücksetzen</v-btn>
+                        <v-btn x-large color="primary" @click.once="handleSubmit(send)">{{ $t('OneWord.resetPassword') }}</v-btn>
                     </v-card-actions>
 
                 </v-card>
@@ -49,7 +49,7 @@
                 this.loading = true;
 
                 axios.post('/password/email', {email: this.email}).then(() => {
-                    EventBus.$emit('success', 'Ihnen wurde ein Email zum setzen eines neuen Passwortes gesendet.');
+                    EventBus.$emit('success', this.$t('ResetPassword.success'));
                     this.sent = true;
                 }).finally(() => {
                     this.loading = false;

@@ -22,6 +22,7 @@ class UserResource extends JsonResource
             'email' => $this->email,
             'name' => optional($this->person)->name ?? $this->email,
             'person_id' => optional($this->person)->id,
+            'locale' => $this->locale,
         ];
     }
 }

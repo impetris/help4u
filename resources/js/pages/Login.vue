@@ -8,25 +8,24 @@
                     <v-card-text>
 
                         <v-alert type="info" border="left">
-                            Bevor sie sich als neuer Helfer*in anmelden können, müssen Sie einen Benutzer anlegen.
-                            Dies ermöglicht Ihnen die spätere einfache Administartion und beantwortung von Anfragen.
+                            {{ $t('Login.infoText') }}
                         </v-alert>
 
-                        <validation-provider rules="required|email" name="Email" v-slot="{errors}">
+                        <validation-provider rules="required|email" :name="$t('OneWord.email')" v-slot="{errors}">
                             <v-text-field
                                 v-model="credentials.email"
                                 type="email"
-                                label="Email Adresse"
+                                :label="$t('OneWord.email')"
                                 required
                                 :error-messages="errors"
                             ></v-text-field>
                         </validation-provider>
 
-                        <validation-provider rules="required" name="Passwort" v-slot="{errors}">
+                        <validation-provider rules="required" :name="$t('OneWord.password')" v-slot="{errors}">
                             <v-text-field
                                 v-model="credentials.password"
                                 type="password"
-                                label="Passwort"
+                                :label="$t('OneWord.password')"
                                 required
                                 :error-messages="errors"
                             ></v-text-field>
@@ -34,10 +33,10 @@
 
                     </v-card-text>
                     <v-card-actions class="pa-4">
-                        <router-link :to="{name: 'reset-password'}">Passwort vergessen?</router-link>
+                        <router-link :to="{name: 'reset-password'}">{{ $t('OneWord.forgotPassword') }}</router-link>
                         <v-spacer></v-spacer>
-                        <v-btn x-large color="grey" text @click="$router.push({name: 'register-user'})" class="hidden-md-and-down">Neu Registrieren</v-btn>
-                        <v-btn x-large color="primary" @click="handleSubmit(login)">Anmelden</v-btn>
+                        <v-btn x-large color="grey" text @click="$router.push({name: 'register-user'})" class="hidden-md-and-down">{{ $t('OneWord.registerNew') }}</v-btn>
+                        <v-btn x-large color="primary" @click="handleSubmit(login)">{{ $t('OneWord.login') }}</v-btn>
                     </v-card-actions>
 
                 </v-card>

@@ -34,3 +34,5 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
 Route::post('user', 'RegisterUserController@register');
 Route::post('help-search', 'HelpSearchController');
+
+Route::post('set-locale', 'SetLocaleController');

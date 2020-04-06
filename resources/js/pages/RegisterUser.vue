@@ -7,7 +7,7 @@
                 <v-form>
 
                     <div class="tw-border-b tw-border-gray-400 tw-text-2xl tw-font-thin">
-                        Als neue Helfer*in Registrieren
+                        {{ $t('RegisterUser.title') }}
                     </div>
 
                     <div class="tw-m-0 md:tw-m-8">
@@ -22,11 +22,11 @@
 
                         <v-row>
                             <v-col>
-                                <validation-provider rules="required|email" name="Email" v-slot="{errors}">
+                                <validation-provider rules="required|email" :name="$t('OneWord.email')" v-slot="{errors}">
                                     <v-text-field
                                         v-model="reg.email"
                                         type="email"
-                                        label="Email Adresse"
+                                        :label="$t('OneWord.email')"
                                         required
                                         :error-messages="errors"
                                     ></v-text-field>
@@ -36,11 +36,11 @@
 
                         <v-row>
                             <v-col>
-                                <validation-provider rules="required|min:8|max:255" name="Passwort" vid="confirm" v-slot="{errors}">
+                                <validation-provider rules="required|min:8|max:255" :name="$t('OneWord.password')" vid="confirm" v-slot="{errors}">
                                     <v-text-field
                                         v-model="reg.password"
                                         type="password"
-                                        label="Passwort"
+                                        :label="$t('OneWord.password')"
                                         required
                                         :error-messages="errors"
                                     ></v-text-field>
@@ -50,11 +50,11 @@
 
                         <v-row>
                             <v-col>
-                                <validation-provider rules="required|min:8|max:255" name="Passwort wiederholen" v-slot="{errors}">
+                                <validation-provider rules="required|min:8|max:255" :name="$t('OneWord.passwordConfirm')" v-slot="{errors}">
                                     <v-text-field
                                         v-model="reg.password_confirmation"
                                         type="password"
-                                        label="Passwort wiederholen"
+                                        :label="$t('OneWord.passwordConfirm')"
                                         required
                                         :error-messages="errors"
                                     ></v-text-field>
@@ -63,7 +63,7 @@
                         </v-row>
 
                         <div class="tw-text-right">
-                            <v-btn x-large color="primary" @click="handleSubmit(save)">Speichern</v-btn>
+                            <v-btn x-large color="primary" @click="handleSubmit(save)">{{ $t('OneWord.save') }}</v-btn>
                         </div>
                     </div>
                 </v-form>
@@ -75,6 +75,7 @@
 <script>
     import {ValidationObserver, ValidationProvider} from 'vee-validate';
     import {EventBus} from '../event-bus';
+    import {mapGetters} from 'vuex';
 
     export default {
         name: 'RegisterUser',
@@ -87,15 +88,21 @@
                 errorDetails: [],
             };
         },
+        computed: {
+            ...mapGetters('user', {
+                locale: 'locale',
+            }),
+        },
         methods: {
             save() {
-                axios.post('api/user', this.reg).then(() => {
+                let reg = this.reg;
+                reg['locale'] = this.locale;
+
+                axios.post('api/user', reg).then(() => {
                     EventBus.$emit('logged-in', {redirect: {name: 'register'}});
-                    EventBus.$emit('success', 'Inr Benutzeraccount wurde angelegt.');
+                    EventBus.$emit('success', this.$t('RegisterUser.success'));
                 }).catch(error => {
                     this.error = true;
-
-                    console.log(error.response);
 
                     this.errorMessage = error.response.data.message;
                     this.errorDetails = error.response.data.errors;

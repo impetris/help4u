@@ -72,7 +72,7 @@
                 this.loading = true;
 
                 axios.post('password/reset', this.reg).then(() => {
-                    EventBus.$emit('success', 'Passwort erfolgreich gespeichert');
+                    EventBus.$emit('success', this.$t('SetPassword.success'));
                     this.$router.push({name: 'profile.inquiries'})
                 }).finally(() => {
                     this.loading = false;
