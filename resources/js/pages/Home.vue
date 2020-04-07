@@ -44,7 +44,7 @@
                     und diese Hilfe anbieten können die Sie benötigen. Diese setzen sich dann mit Ihnen direkt in Verbindung.
                 </p>
                 <p>
-                    <strong>Die gesamte Dienstleitung von HELP4U ist für alle kostenlos.</strong>
+                    <strong>Die gesamte Dienstleistung von HELP4U ist für alle kostenlos.</strong>
                 </p>
             </div>
         </div>
