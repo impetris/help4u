@@ -2,7 +2,7 @@
     <div class="tw-container tw-mx-auto tw-my-8">
 
         <v-row>
-            <v-col mp="3" cols="12">
+            <v-col md="3" cols="12">
 
                 <v-list>
                     <v-list-item>
