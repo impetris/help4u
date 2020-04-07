@@ -73,10 +73,16 @@
                             <img class="tw-h-16" src="/img/sponsor/impetris_colour_trans_bg.png">
                         </a>
                     </div>
-                    <div class="tw-inline-block">
+                    <div class="tw-inline-block tw-mr-8">
                         <div class="my-4">{{ $t('Home.partner.images') }}</div>
                         <a href="https://diexperten.ch" target="_blank">
                             <img class="tw-h-16" src="/img/sponsor/diexperten.png">
+                        </a>
+                    </div>
+                    <div class="tw-inline-block">
+                        <div class="my-4">{{ $t('Home.partner.translation.it') }}</div>
+                        <a href="http://www.haus-verna.it" target="_blank">
+                            <img class="tw-h-16" src="/img/sponsor/haus-verna.jpg">
                         </a>
                     </div>
                 </div>
