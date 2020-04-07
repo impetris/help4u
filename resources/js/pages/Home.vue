@@ -40,8 +40,8 @@
                 </p>
                 <p>
                     <strong>Hilfe benötigen</strong><br>
-                    Geben sie an, zu welchem Bereich sie Hilfe benötigen und wo Sie diese benötigt wird. HELP4U sucht dann automatisch nach Personen die in Ihrer nähe sind,
-                    und diese Hilfe anbieten können die Sie benötigen. Diese setzen sich dann mit Ihnen direkt in verbindung.
+                    Geben sie an, zu welchem Bereich sie Hilfe benötigen und wo diese benötigt wird. HELP4U sucht dann automatisch nach Personen die in Ihrer Nähe sind,
+                    und diese Hilfe anbieten können die Sie benötigen. Diese setzen sich dann mit Ihnen direkt in Verbindung.
                 </p>
                 <p>
                     <strong>Die gesamte Dienstleitung von HELP4U ist für alle kostenlos.</strong>
