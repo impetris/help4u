@@ -2,7 +2,7 @@
     <div class="tw-container tw-mx-auto tw-my-8">
 
         <v-row>
-            <v-col cols="3">
+            <v-col mp="3" cols="12">
 
                 <v-list>
                     <v-list-item>
@@ -37,7 +37,7 @@
                 </v-list>
 
             </v-col>
-            <v-col cols="9">
+            <v-col md="9" cols="12">
                 <router-view></router-view>
             </v-col>
         </v-row>
