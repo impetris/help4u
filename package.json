@@ -21,7 +21,7 @@
         "laravel-mix": "^5.0.1",
         "locize-editor": "^3.0.0",
         "locizer": "^2.1.1",
-        "lodash": "^4.17.13",
+        "lodash": "^4.17.19",
         "popper.js": "^1.12",
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.26.3",
