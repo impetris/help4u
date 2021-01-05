@@ -12,7 +12,7 @@
     "devDependencies": {
         "@mdi/font": "^5.0.45",
         "awesome-phonenumber": "^2.30.0",
-        "axios": "^0.19",
+        "axios": "^0.21",
         "bootstrap": "^4.0.0",
         "cross-env": "^7.0",
         "deepmerge": "^4.2.2",
