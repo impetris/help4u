@@ -17,7 +17,7 @@
         "cross-env": "^7.0",
         "deepmerge": "^4.2.2",
         "fibers": "^4.0.2",
-        "jquery": "^3.2",
+        "jquery": "^3.5",
         "laravel-mix": "^5.0.1",
         "locize-editor": "^3.0.0",
         "locizer": "^2.1.1",
